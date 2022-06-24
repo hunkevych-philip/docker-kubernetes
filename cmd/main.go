@@ -29,12 +29,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Something went wrong"))
+
 		return
 	}
 
 	v, err := rdb.NumberOfVisists(ctx)
 	if err != nil {
 		Logger.Printf("Database returned an error: %s\n", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Something went wrong"))
 
 		return

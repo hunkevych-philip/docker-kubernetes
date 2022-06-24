@@ -52,7 +52,7 @@ func (w *RedisWrapper) NumberOfVisists(ctx context.Context) (int, error) {
 
 		return res, nil
 	case redis.Nil:
-		// create a variable for the fist visiting
+		// create a variable for the first visiting
 		err = w.rdb.Set(ctx, numberOfVisistsRedis, 1, 0).Err()
 		if err != nil {
 			return -1, err
