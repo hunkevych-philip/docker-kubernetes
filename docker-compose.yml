@@ -6,4 +6,6 @@ services:
     restart: 'always'
     build: .
     ports:
-      - 8080:8080
+      - "8080:8080"
+    volumes:
+      - ./cmd/volumes:/usr/src/app/cmd/volumes
