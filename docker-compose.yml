@@ -1,5 +1,11 @@
 version: '3.3'
 services:
+  test:
+    build: .
+    command:
+      - "go"
+      - "test"
+      - "./..."
   redis-service:
     image: 'redis'
   go-app:

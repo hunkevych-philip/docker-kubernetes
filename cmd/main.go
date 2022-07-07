@@ -65,3 +65,9 @@ func volume(w http.ResponseWriter, r *http.Request) {
 
 	w.Write(bs)
 }
+
+const TestString = "test"
+
+func Dummy() string {
+	return TestString
+}
