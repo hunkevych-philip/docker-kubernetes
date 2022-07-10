@@ -1,4 +1,4 @@
-FROM golang:1.18
+FROM golang:1.18 as builder
 
 WORKDIR /usr/src/app
 
@@ -8,5 +8,9 @@ RUN go mod download && go mod verify
 
 COPY . .
 RUN go build -v -o /usr/local/bin/ ./...
+
+FROM golang:1.18
+
+COPY --from=builder /usr/local/bin/  /usr/local/bin/
 
 CMD ["cmd"]
